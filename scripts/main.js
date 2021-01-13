@@ -14,7 +14,11 @@ let menu = [
     price: 6.99,
     ingredients: ["bread", "mayo", "tomato", "salt and pepper"],
   },
-  leastFavoriteSandwich,
+  {
+    sandwichName: "Mud sandwich",
+    price: 11.99,
+    ingredients: ["bread", "mud", "mustard"],
+  },
   {
     sandwichName: "Rueben",
     price: 9.99,
@@ -23,9 +27,36 @@ let menu = [
       "corned beef",
       "saurkraut",
       "thousand island dressing",
+      "cheese",
     ],
   },
 ];
+
+// 1. Write a "Dairy Free" function -CHECKK
+// 2. that loops through your array of sandwiches - CHECKKK
+// 3. and returns a new array of sandwiches
+// 4. that do NOT include cheese in their ingredient list.
+//(Make sure you have at least one sandwich with cheese so you can test if this function works.)
+
+function dairyFree() {
+  // Somewhere in here I need an if/else statement to ask if there is cheese
+  let cheeseFreeSandwiches = [];
+  for (let i = 0; i < menu.length; i++) {
+    let ingredientsForThisSandwich = menu[i].ingredients
+
+    if (ingredientsForThisSandwich.includes("cheese")=== false) {
+      cheeseFreeSandwiches.push(menu[i])
+    }
+
+  }
+  return cheeseFreeSandwiches;
+}
+
+let dairyFreeMenu = dairyFree(); // Expected output: we should see logs that say mud and tomato do not include cheese, and rueben DOES
+
+console.log("dairy free menu", dairyFreeMenu)
+
+// Expected output: array with tomato sandwich and mud sandwich, but NOT my rueben because it has cheese
 
 // let ruebenIngredients = menu[2].ingredients;
 // console.log("this is rueben ingredietns", ruebenIngredients)
@@ -66,31 +97,32 @@ let menu = [
 
 // Write a function that takes in the name of my franchise owner and returns an array of menu items with that person's name tacked onto the beginning
 
-function createFranchiseMenu(franchiseOwnerName) {
-  let franchiseMenuArray = [];
-  console.log("This franchise belongs to:", franchiseOwnerName);
-  //Loop over the menu array
-  for (let i = 0; i < menu.length; i++) {
-    // Modify every sandwich name to include the franchise owner's name
-    let currentSandwichObject = menu[i];
-    let currentSandwichName = currentSandwichObject.sandwichName;
-    // Object for new sandwich menu
-    let newSandwich = {
-      sandwichName: `${franchiseOwnerName}'s ${currentSandwichName}`
-    }
-    // Push it into the new franchise menu
-    franchiseMenuArray.push(newSandwich)
-  }
+// function createFranchiseMenu(franchiseOwnerName) {
+//   let franchiseMenuArray = [];
+//   console.log("This franchise belongs to:", franchiseOwnerName);
+//   //Loop over the menu array
+//   for (let i = 0; i < menu.length; i++) {
+//     // Modify every sandwich name to include the franchise owner's name
+//     let currentSandwichObject = menu[i];
+//     let currentSandwichName = currentSandwichObject.sandwichName;
+//     // Object for new sandwich menu
+//     let newSandwich = {
+//       sandwichName: `${franchiseOwnerName}'s ${currentSandwichName}`
+//     }
+//     // Push it into the new franchise menu
+//     franchiseMenuArray.push(newSandwich)
+//   }
 
-//   console.log(franchiseMenuArray)
-  return franchiseMenuArray;
-}
+// //   console.log(franchiseMenuArray)
+//   return franchiseMenuArray;
+// }
+
+// // Call the function
+// let vincentMenu = createFranchiseMenu("Vincent");
+// let angieMenu = createFranchiseMenu("Angie");
+// let mandyMenu = createFranchiseMenu("Mandy");
+// let thomasMenu = createFranchiseMenu("Thomas");
+
+// console.log(vincentMenu)
 
 
-// Call the function
-let vincentMenu = createFranchiseMenu("Vincent");
-let angieMenu = createFranchiseMenu("Angie");
-let mandyMenu = createFranchiseMenu("Mandy");
-let thomasMenu = createFranchiseMenu("Thomas");
-
-console.log(vincentMenu)
